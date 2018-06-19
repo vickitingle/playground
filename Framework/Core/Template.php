@@ -38,9 +38,7 @@ class Template
 
         if ($file && $directory) {
             $viewPath = $this->path . $file . '.phtml';
-            echo $viewPath;
             if (file_exists($viewPath)) {
-                echo 'file exists';
                 $baseView = file_get_contents($this->path . '/' . self::BASE_VIEW);
                 $body = file_get_contents($viewPath);
                 $view = str_replace('{{ body }}', $body, $baseView);
@@ -90,10 +88,5 @@ class Template
     public function getFile($controller)
     {
         return str_replace(APP_CONTROLLER_METHOD_SUFFIX, null, $controller);
-    }
-
-    public function setData($key, $value)
-    {
-        
     }
 }
