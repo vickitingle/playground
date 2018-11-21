@@ -1,8 +1,13 @@
 {
+  "require": {
+    "monolog/monolog": "1.0.*",
+    "guzzlehttp/guzzle": "^6.2"
+  },
   "autoload": {
     "psr-4": {
-      "Framework\\": "Framework/",
-      "": "src/"
+      "Playground\\":"src/",
+      "Core\\":"Core/",
+      "Playground\\Controllers\\":"src/Controllers"
     }
   }
 }
