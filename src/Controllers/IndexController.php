@@ -2,15 +2,21 @@
 
 namespace Playground\Controllers;
 
-class IndexController
-{
-  public function __construct()
-  {
-    echo 'Heres the index controller';
-  }
+use Core\AbstractController;
 
-  public function index()
-  {
-      echo 'heres the index action of the index controller';
-  }
+class IndexController extends AbstractController
+{
+    /**
+    * @return string
+    * @throws \Exception
+    */
+    public function index()
+    {
+        return $this->loadView('home/index', []);
+    }
+
+    public function view()
+    {
+        echo 'heres the view action of the index controller';
+    }
 }
