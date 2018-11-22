@@ -3,6 +3,7 @@
 namespace Playground\Controllers;
 
 use Core\AbstractController;
+use Playground\Models\Sample;
 
 class IndexController extends AbstractController
 {
@@ -12,7 +13,13 @@ class IndexController extends AbstractController
     */
     public function index()
     {
-        return $this->loadView('home/index', []);
+        /** @var Sample $sampleModel */
+        $sampleModel = $this->loadModel('Sample');
+        $data = $sampleModel->getByLastName('Unknown');
+        var_dump($data);
+        return $this->loadView('home/index', [
+            'name' => 'Vicki'
+        ]);
     }
 
     public function view()

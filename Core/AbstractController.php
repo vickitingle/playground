@@ -21,4 +21,14 @@ class AbstractController
             throw new \Exception('The view could not be loaded: ' . $e->getMessage());
         }
     }
+
+    /**
+     * @param $model string
+     * @return static
+     */
+    public function loadModel($model)
+    {
+        $modelClass = DEFAULT_MODEL_PREFIX . '\\' . $model;
+        return new $modelClass();
+    }
 }

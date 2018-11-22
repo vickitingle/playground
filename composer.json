@@ -7,7 +7,8 @@
     "psr-4": {
       "Playground\\":"src/",
       "Core\\":"Core/",
-      "Playground\\Controllers\\":"src/Controllers"
+      "Playground\\Controllers\\":"src/Controllers",
+      "Playground\\Models\\":"src/Models"
     }
   }
 }

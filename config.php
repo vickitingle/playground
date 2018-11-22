@@ -5,3 +5,14 @@ define('DS', '/');
 define('PUBLIC_ROOT', SITE_ROOT . DS . 'public');
 
 define('TEMPLATE_PATH', PUBLIC_ROOT . DS . 'views');
+
+define('DEFAULT_CONTROLLER', '\\IndexController');
+define('DEFAULT_CONTROLLER_PREFIX', 'Playground\Controllers');
+define('DEFAULT_ACTION', 'index');
+
+define('DEFAULT_MODEL_PREFIX', 'Playground\Models');
+
+define('DB_USER', 'root');
+define('DB_PASS', 'root');
+define('DB_HOST', '127.0.0.1');
+define('DB_NAME', 'playground');
