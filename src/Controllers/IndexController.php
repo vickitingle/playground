@@ -33,6 +33,9 @@ class IndexController extends AbstractController
         /** @var HeroRepository $hero */
 //        $hero = $this->hero->getHeroById(1);
         $heroes = $this->hero->getCollection('hero');
+        foreach ($heroes as $hero) {
+            echo $hero->getName() . '<br/>';
+        }
         return $this->loadView('home/index', [
             'name' => 'Vicki'
         ]);

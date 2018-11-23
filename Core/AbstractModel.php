@@ -56,8 +56,11 @@ class AbstractModel
         $result = $this->db->selectAll($this->table);
         $collection = [];
         foreach ($result as $item) {
-
+            $this->data = $item;
+            $collection[] = $this->getRepository($class);
         }
+
+        return $collection;
     }
 
     /**
@@ -66,7 +69,7 @@ class AbstractModel
      */
     public function getById($id)
     {
-        return $this->db->select($this->table, ['*'], [$this->primaryKey => $id]);
+        return $this->db->select($this->table, ['*'], [$this->primaryKey => $id])[0];
     }
 
     public function getRepository($class)

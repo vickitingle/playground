@@ -56,11 +56,11 @@ class HeroRepository extends Hero implements HeroRepositoryInterface
 
     public function getData($key)
     {
-        return $this->data[0][$key];
+        return $this->data[$key];
     }
 
     public function setData($key, $value)
     {
-        return $this->data[0][$key] = $value;
+        return $this->data[$key] = $value;
     }
 }
