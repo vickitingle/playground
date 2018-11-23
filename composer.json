@@ -8,7 +8,8 @@
       "Playground\\":"src/",
       "Core\\":"Core/",
       "Playground\\Controllers\\":"src/Controllers",
-      "Playground\\Models\\":"src/Models"
+      "Playground\\Models\\":"src/Models",
+      "Playground\\installers\\":"src/installers"
     }
   }
 }

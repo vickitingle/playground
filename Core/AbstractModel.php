@@ -27,12 +27,8 @@ class AbstractModel
         return $this->db->selectAll($this->table);
     }
 
-    public function getByLastName($lastName)
+    public function getById($id)
     {
-        return $this->db->select($this->table, ['*'],
-            [
-                'lastname' => $lastName
-            ]
-        );
+        return $this->db->select($this->table, ['*'], [$this->primaryKey => $id]);
     }
 }

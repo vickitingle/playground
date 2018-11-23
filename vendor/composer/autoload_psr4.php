@@ -7,6 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
+    'Playground\\installers\\' => array($baseDir . '/src/installers'),
     'Playground\\Models\\' => array($baseDir . '/src/Models'),
     'Playground\\Controllers\\' => array($baseDir . '/src/Controllers'),
     'Playground\\' => array($baseDir . '/src'),

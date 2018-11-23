@@ -16,6 +16,7 @@ class ComposerStaticInit77c0ec11fcc674811c166877958ecd84
         'P' => 
         array (
             'Psr\\Http\\Message\\' => 17,
+            'Playground\\installers\\' => 22,
             'Playground\\Models\\' => 18,
             'Playground\\Controllers\\' => 23,
             'Playground\\' => 11,
@@ -36,6 +37,10 @@ class ComposerStaticInit77c0ec11fcc674811c166877958ecd84
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Playground\\installers\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/installers',
         ),
         'Playground\\Models\\' => 
         array (

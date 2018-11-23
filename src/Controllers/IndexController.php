@@ -15,8 +15,6 @@ class IndexController extends AbstractController
     {
         /** @var Sample $sampleModel */
         $sampleModel = $this->loadModel('Sample');
-        $data = $sampleModel->getByLastName('Unknown');
-        var_dump($data);
         return $this->loadView('home/index', [
             'name' => 'Vicki'
         ]);
