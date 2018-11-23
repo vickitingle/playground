@@ -3,8 +3,10 @@
 define('SITE_ROOT', __DIR__);
 define('DS', '/');
 define('PUBLIC_ROOT', SITE_ROOT . DS . 'public');
+define('SITE_URL', 'http://playground.rufio.office.cogapp.com');
 
 define('TEMPLATE_PATH', PUBLIC_ROOT . DS . 'views');
+define('CSS_PATH', 'assets' . DS . 'css');
 
 define('DEFAULT_CONTROLLER', '\\IndexController');
 define('DEFAULT_CONTROLLER_PREFIX', 'Playground\Controllers');
