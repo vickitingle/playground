@@ -38,4 +38,14 @@ class Template
             throw new \Exception('The template ' . $this->path . ' could not be found.');
         }
     }
+
+    public function addCss($file)
+    {
+        $fileUri = SITE_URL . DS . CSS_PATH . DS . $file;
+        $filePath = PUBLIC_ROOT . DS . CSS_PATH . DS . $file;
+        if (file_exists($filePath)) {
+            return '<link rel="stylesheet" type="text/css" href="' . $fileUri . '" />';
+        }
+        return '';
+    }
 }
