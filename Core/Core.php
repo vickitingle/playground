@@ -19,6 +19,9 @@ class Core
             case 'model':
                 $class = new \ReflectionClass(DEFAULT_MODEL_PREFIX . '\\' . $class);
                 break;
+            case 'repository':
+                $class = new \ReflectionClass(DEFAULT_REPOSITORY_PREFIX . '\\' . $class);
+                break;
             default:
                 $class = new \ReflectionClass(DEFAULT_MODEL_PREFIX . '\\' . $class);
                 break;
@@ -26,10 +29,11 @@ class Core
 
         // Let's get all the constructor parameters
         $reflectionParameters = $class->getConstructor()->getParameters();
-
         $dependencies = [];
         foreach($reflectionParameters as $param) {
-            $dependencies[] = $param->getClass()->newInstance();
+            if (!is_null($param->getClass())) {
+                $dependencies[] = $param->getClass()->newInstance();
+            }
         }
         $instance = $class->newInstanceArgs($dependencies);
         return $instance;

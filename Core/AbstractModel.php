@@ -3,6 +3,7 @@
 namespace Core;
 
 use Core\Database;
+use Core\Core;
 
 /**
  * Class AbstractModel
@@ -20,14 +21,23 @@ class AbstractModel
     /** @var string */
     protected $primaryKey;
 
+    /** @var \Core\Core  */
+    protected $core;
+
+    /** @var array */
+    protected $data = [];
+
     /**
      * AbstractModel constructor.
      * @param \Core\Database $db
+     * @param \Core\Core $core
      */
     public function __construct(
-        Database $db
+        Database $db,
+        Core $core
     ) {
         $this->db = $db;
+        $this->core = $core;
     }
 
     /**
@@ -41,9 +51,13 @@ class AbstractModel
     /**
      * @return array
      */
-    public function getCollection()
+    public function getCollection($class)
     {
-        return $this->db->selectAll($this->table);
+        $result = $this->db->selectAll($this->table);
+        $collection = [];
+        foreach ($result as $item) {
+
+        }
     }
 
     /**
@@ -53,5 +67,12 @@ class AbstractModel
     public function getById($id)
     {
         return $this->db->select($this->table, ['*'], [$this->primaryKey => $id]);
+    }
+
+    public function getRepository($class)
+    {
+        $className = 'Playground\Models\Repositories\\' . ucfirst($class) . '\\' . ucfirst($class) . 'Repository';
+        return new $className($this->db, $this->core, $this->data);
+
     }
 }

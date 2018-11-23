@@ -6,7 +6,8 @@ require_once('../../config.php');
 $tableName = 'heroes';
 $columns = 'id int NOT NULL PRIMARY KEY AUTO_INCREMENT,
             name VARCHAR(255) NOT NULL,
-            category VARCHAR(255) NOT NULL';
+            category VARCHAR(255) NOT NULL
+            ultimate_id int NOT NULL';
 
 $sql = 'CREATE TABLE ' . $tableName . ' (' . $columns . ')';
 

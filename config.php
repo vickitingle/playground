@@ -13,6 +13,7 @@ define('DEFAULT_CONTROLLER_PREFIX', 'Playground\Controllers');
 define('DEFAULT_ACTION', 'index');
 
 define('DEFAULT_MODEL_PREFIX', 'Playground\Models');
+define('DEFAULT_REPOSITORY_PREFIX', 'Playground\Models\Repositories');
 
 define('DB_USER', 'root');
 define('DB_PASS', 'root');
