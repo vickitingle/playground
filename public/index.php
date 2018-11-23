@@ -2,9 +2,11 @@
 require_once('../config.php');
 require SITE_ROOT . DS . "vendor/autoload.php";
 use Core\Framework;
+use Core\Core;
 
 $request = $_SERVER['REQUEST_URI'];
 
-$framework = new Framework($request);
+$core = new Core();
+$framework = new Framework($core, $request);
 
 $framework->run();

@@ -3,9 +3,17 @@
 namespace Core;
 
 use Core\Template;
+use Core\Core;
 
 class AbstractController
 {
+    protected $core;
+    public function __construct(
+        Core $core
+    ) {
+        $this->core = $core;
+    }
+
     /**
      * @param $path
      * @param $data
@@ -23,12 +31,12 @@ class AbstractController
     }
 
     /**
-     * @param $model string
-     * @return static
+     * @param $model
+     * @throws \ReflectionException
+     * @return mixed
      */
     public function loadModel($model)
     {
-        $modelClass = DEFAULT_MODEL_PREFIX . '\\' . $model;
-        return new $modelClass();
+        return $this->core->createClassInstance($model, 'model');
     }
 }

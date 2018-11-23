@@ -3,14 +3,19 @@
 namespace Playground\Models;
 
 use Core\AbstractModel;
+use Core\Database;
 
 class Sample extends AbstractModel
 {
-    public function __construct()
+    protected $database;
+    public function __construct(
+        Database $database
+    )
     {
         parent::__construct();
         $this->table = 'test';
         $this->primaryKey = 'id';
+        $this->database = $database;
     }
 
     public function getByLastName($lastName)

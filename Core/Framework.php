@@ -3,14 +3,19 @@
 namespace Core;
 
 use Core\AbstractModel;
+use Core\Core;
 
 class Framework
 {
+    protected $core;
     protected $requestUri;
     protected $controllerClass;
 
-    public function __construct($requestUri)
-    {
+    public function __construct(
+        Core $core,
+        $requestUri
+    ) {
+        $this->core = $core;
         $this->requestUri = $requestUri;
     }
 
@@ -25,7 +30,7 @@ class Framework
           : DEFAULT_CONTROLLER_PREFIX . DEFAULT_CONTROLLER;
         $action = isset($requestString[2]) && $requestString[2] !== '' ? $requestString[2] : DEFAULT_ACTION;
         try {
-            $controller = new $this->controllerClass();
+            $controller = $this->core->createClassInstance($this->controllerClass, 'controller');
             $controller->$action();
         } catch (\Exception $e) {
             throw new \Exception('There was an issue loading the page: ' . $e->getMessage());
