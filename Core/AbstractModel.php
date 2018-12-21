@@ -49,6 +49,7 @@ class AbstractModel
     }
 
     /**
+     * @param string $class
      * @return array
      */
     public function getCollection($class)
@@ -72,10 +73,33 @@ class AbstractModel
         return $this->db->select($this->table, ['*'], [$this->primaryKey => $id])[0];
     }
 
+    /**
+     * @param $class
+     * @return mixed
+     */
     public function getRepository($class)
     {
         $className = 'Playground\Models\Repositories\\' . ucfirst($class) . '\\' . ucfirst($class) . 'Repository';
         return new $className($this->db, $this->core, $this->data);
+    }
 
+    /**
+     * @param $field
+     * @param $value
+     * @return array
+     */
+    public function getItem($field, $value)
+    {
+        return $this->db->select($this->table, ['*'], [$field => $value])[0];
+    }
+
+    public function getData($key)
+    {
+        return $this->data[$key];
+    }
+
+    public function setData($key, $value)
+    {
+        return $this->data[$key] = $value;
     }
 }

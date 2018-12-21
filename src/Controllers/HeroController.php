@@ -7,9 +7,9 @@ use Core\Core;
 use Playground\Models\Hero;
 use Playground\Models\Repositories\Hero\HeroRepository;
 
-class IndexController extends AbstractController
+class HeroController extends AbstractController
 {
-    /** @var Hero  */
+    /** @var Hero */
     protected $hero;
 
     /**
@@ -19,27 +19,24 @@ class IndexController extends AbstractController
      */
     public function __construct(
         Core $core
-    ) {
+    )
+    {
         parent::__construct($core);
         $this->hero = $this->loadModel('Hero');
     }
 
     /**
-    * @return string
-    * @throws \Exception
-    */
+     * @return string
+     * @throws \Exception
+     */
     public function index()
     {
-        /** @var HeroRepository $hero */
-        $heroes = $this->hero->getCollection('hero');
-        return $this->loadView('home/index', [
-            'name' => 'Vicki',
-            'heroes' => $heroes
-        ]);
-    }
-
-    public function view()
-    {
-        echo 'heres the view action of the index controller';
+        $heroId = $this->getParam('id');
+        if (!is_null($heroId)) {
+            $hero = $this->hero->getHeroById($heroId);
+            return $this->loadView('heroes/view', [
+                'hero' => $hero
+            ]);
+        }
     }
 }

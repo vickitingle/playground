@@ -39,4 +39,19 @@ class AbstractController
     {
         return $this->core->createClassInstance($model, 'model');
     }
+
+    public function getPost()
+    {
+        return $_POST;
+    }
+
+    public function getParams()
+    {
+        return $_GET;
+    }
+
+    public function getParam($param)
+    {
+        return isset($_GET[$param]) ? $_GET[$param] : null;
+    }
 }

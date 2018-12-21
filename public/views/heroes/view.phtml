@@ -1,0 +1,13 @@
+<?php
+/**
+ * @var $this \Core\Template
+ * @var $hero \Playground\Models\Repositories\Hero\HeroRepository
+ */
+
+$this->includeHeader();
+
+?>
+
+<div class="hero">
+    <h1><?php echo $hero->getName(); ?></h1>
+</div>

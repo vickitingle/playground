@@ -8,5 +8,8 @@ $request = $_SERVER['REQUEST_URI'];
 
 $core = new Core();
 $framework = new Framework($core, $request);
-
-$framework->run();
+try {
+    $framework->run();
+} catch (\Exception $e) {
+    throw new Exception('Error starting application: ' . $e->getMessage());
+}

@@ -19,48 +19,62 @@ class HeroRepository extends Hero implements HeroRepositoryInterface
         $this->data = $data;
     }
 
+    /**
+     * @return int|mixed
+     */
     public function getId()
     {
         return $this->getData(self::ID);
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getName()
     {
         return $this->getData(self::NAME);
     }
 
+    /**
+     * @return mixed|string
+     */
     public function getCategory()
     {
         return $this->getData(self::CATEGORY);
     }
 
+    /**
+     * @return int|mixed
+     */
     public function getUltimateId()
     {
         return $this->getData(self::ULTIMATE_ID);
     }
 
+    /**
+     * @param string $name
+     * @return mixed
+     */
     public function setName($name)
     {
         return $this->setData(self::NAME, $name);
     }
 
+    /**
+     * @param string $category
+     * @return mixed
+     */
     public function setCategory($category)
     {
         return $this->setData(self::CATEGORY, $category);
     }
 
+    /**
+     * @param int $ultimateId
+     * @return mixed
+     */
     public function setUltimateId($ultimateId)
     {
         return $this->setData(self::ULTIMATE_ID, $ultimateId);
-    }
-
-    public function getData($key)
-    {
-        return $this->data[$key];
-    }
-
-    public function setData($key, $value)
-    {
-        return $this->data[$key] = $value;
     }
 }

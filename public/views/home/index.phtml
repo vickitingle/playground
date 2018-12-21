@@ -1,13 +1,20 @@
-<!DOCTYPE html>
+<?php
+/**
+ * @var $this \Core\Template
+ * @var $heroes array
+ */
 
-<html>
+$this->includeHeader();
 
-<head>
-    <?php echo $this->addCss('main.css'); ?>
-</head>
+?>
 
-<body>
+<div class="heroes">
+    <?php foreach ($heroes as $hero) : ?>
+        <div class="hero">
+            <a href="<?php echo 'hero?id=' . $hero->getId(); ?>"><?php echo $hero->getName(); ?></a>
+        </div>
+    <?php endforeach; ?>
+</div>
 
-</body>
 
-</html>
+<?php $this->includeFooter(); ?>

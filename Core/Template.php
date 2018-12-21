@@ -48,4 +48,14 @@ class Template
         }
         return '';
     }
+
+    public function includeHeader()
+    {
+        include TEMPLATE_PATH . DS . 'header.phtml';
+    }
+
+    public function includeFooter()
+    {
+        include TEMPLATE_PATH . DS . 'footer.phtml';
+    }
 }
